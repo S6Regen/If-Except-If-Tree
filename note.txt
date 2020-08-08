@@ -1,0 +1,37 @@
+If-Except-If Tree algorithm.
+
+General idea:
+Given the string "Orang"
+If the letter 'g' then 'r' is wrong as a next letter guess, though in many cases it might be correct.
+If 'g' then 'r' except if previous symbol is 'n' then 'e' is correct.
+And thus you get "Orange"
+
+Training can be via a 'greedy' algorithm. Just keep adding exceptions to the tree as you 
+encounter them (Online training.)
+
+Code:
+FreeBasic (Linus AMD64)
+The RobinHood algorithm is a 64 bit key, 8 bit value hash table.  You can use a more normal
+hash table algorithm.
+The If-Except-If tree is implemented using a roll hash going backward through the string to be
+predicted from. Once no further exceptions are found in the hash table keep the last value that
+could be obtained from the hash table as the result. 
+For prediction return that last value.
+For training if that last value is incorrect insert the correct value at the finish hash table key
+that was an empty slot.
+Using hash tables gives a probabilistic implementation of the If-Except-If tree.
+
+Usage:
+Run executable on Linux AMD64 machine or compile FreeBasic code and run.
+Press key 1. Enter text1.txt
+Press key 1. Enter text2.txt
+Press key 2. Enter text you want to predict from.
+
+Possible Application:
+External associative memory for neural networks if they can tolerate generating suitable
+symbols for the If-Except-If tree and accepting such symbols back.
+
+Sean O'Connor 8 August 2020.
+
+PS. I discovered the If-Except-If tree algorithm 28 years ago!!!
+I used linked lists back then because I didn't know better.
